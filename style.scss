@@ -1,0 +1,164 @@
+@import "compass/css3";
+@mixin hex-color($hexy) {
+  .hex-box{ background-color: $hexy; }
+  .inner { background-color: $hexy; }
+  .hex-1 { background-color: $hexy; }
+  .hex-2 { background-color: $hexy; }
+}
+
+$blue: #2980B9;
+$blue-hover: #3498DB;
+$purple: #8E44AD;
+$purple-hover: #9B59B6;
+$green: #27AE60;
+$green-hover: #2ECC71;
+$red: #C0392B;
+$red-hover: #E74C3C;
+$orange: #F39C12;
+$orange-hover: #F1C40F;
+$seagreen: #16A085;
+$seagreen-hover: #1ABC9C;
+$darkblue: #2C3E50;
+$darkblue-hover: #34495E;
+$pumpkin: #D35400;
+$pumpkin-hover: #E67E22;
+$silver: #BDC3C7;
+$silver-hover: #ECF0F1;
+$grey: #7F8C8D;
+$grey-hover: #95A5A6;
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+body {
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hex-grid { // controls positioning of all hexagons
+  width: 100%;
+  margin-top: 5rem;
+  margin-left: 8rem;
+}
+
+.hex-top {
+	width:920px;
+}
+.hex-middle {
+  width: 690px;
+  margin-left: 115px;
+}
+
+.hex-bottom{
+  width: 460px;
+  margin-left: 230px;
+}
+
+.hex-neo{
+  width: 230px;
+  margin-left: 345px;
+}
+
+
+
+
+
+
+
+
+
+.hex-box {
+	 display: block;
+	 position: relative;
+    z-index: 1;
+    width: 190px;
+    height: 110px;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 80px;
+  
+  	.inner {
+      position: absolute;
+      z-index: 10;
+      width: 190px;
+      height: 110px;
+      content: '';
+    }
+  
+    .hex-1 {
+      position: absolute;
+      z-index: -1;
+      width: 190px;
+      height: 110px;
+      @include transform( rotate(60deg) );
+	 }
+  
+    .hex-2 {
+      position: absolute;
+      z-index: -2;
+      width: 190px;
+      height: 110px;
+      @include transform( rotate(-60deg) );
+	}
+}
+
+/* colors */
+
+.color1 {
+  @include hex-color($blue);
+  &:hover{ @include hex-color($blue-hover);}
+}
+.color2 {
+  @include hex-color($green);
+  &:hover{ @include hex-color($green-hover);}
+}
+.color3 {
+  @include hex-color($seagreen);
+  &:hover{ @include hex-color($seagreen-hover);}
+}
+.color4 {
+  @include hex-color($red);
+  &:hover{ @include hex-color($red-hover);}
+}
+.color5 {
+  @include hex-color($purple);
+  &:hover{ @include hex-color($purple-hover);}
+}
+/*.color6 {
+  @include hex-color($silver);
+  &:hover{ @include hex-color($silver-hover);}
+} */  //It looks better commented out
+.color7 {
+  @include hex-color($pumpkin);
+  &:hover{ @include hex-color($pumpkin-hover);}
+}
+.color8 {
+  @include hex-color($darkblue);
+  &:hover{ @include hex-color($darkblue-hover);}
+}
+.color9 {
+  @include hex-color($orange);
+  &:hover{ @include hex-color($orange-hover);}
+}
+.color10 {
+  @include hex-color($grey);
+  &:hover{ @include hex-color($grey-hover);}
+}
+/* animation */
+
+.color1, .color2, .color3,
+.color4, .color5, .color6
+.color7, .color8, .color9,
+.color10 {
+	@include transition-property(all);
+	@include transition-duration(500ms);
+  @include transition-timing-function(ease-in);
+  
+	&:active{ 
+    @include scale(1.1);
+  }
+}
